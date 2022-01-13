@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">calculator</string>
+    <string name="text">0</string>
+    <string name="buAC">C</string>
+    <string name="bu1">1</string>
+    <string name="bu2">2</string>
+    <string name="bu3">3</string>
+    <string name="bu4">4</string>
+    <string name="bu5">5</string>
+    <string name="bu6">6</string>
+    <string name="bu7">7</string>
+    <string name="bu8">8</string>
+    <string name="bu9">9</string>
+    <string name="buZero">0</string>
+    <string name="buAdd">+</string>
+    <string name="buMinus">-</string>
+    <string name="buMul">X</string>
+    <string name="buDiv">\</string>
+    <string name="buequal">=</string>
+    <string name="buDot">.</string>
+    <string name ="buplusminus">+/-</string>
+    <string name="bupercent">%</string>
+
+</resources>
