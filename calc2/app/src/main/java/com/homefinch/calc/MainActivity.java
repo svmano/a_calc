@@ -9,6 +9,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     String op = "";
+    String test = "";
     String oldNumber = "";
     boolean isNew = true;
     EditText ed1;
