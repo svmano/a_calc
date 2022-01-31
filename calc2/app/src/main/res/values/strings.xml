@@ -14,7 +14,7 @@
     <string name="buZero">0</string>
     <string name="buAdd">+</string>
     <string name="buMinus">-</string>
-    <string name="buMul">X</string>
+    <string name="buMul">*</string>
     <string name="buDiv">\</string>
     <string name="buequal">=</string>
     <string name="buDot">.</string>

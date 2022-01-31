@@ -3,16 +3,18 @@ package com.homefinch.calc;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     String op = "";
-    String test = "";
     String oldNumber = "";
     boolean isNew = true;
     EditText ed1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +24,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberEvent(View view) {
-        if(isNew)
+        if(isNew) {
             ed1.setText("");
+        }
         isNew = false;
         String number = ed1.getText().toString();
+        //Button b = (Button)view;
+        //Log.println(0, "ui", b.getText().toString());
+        //number.concat(b.getText().toString());
         switch(view.getId()) {
             case R.id.bu1:
-                number += "1";
+                number += ("1");
                 break;
             case R.id.bu2:
                 number += "2";
@@ -57,19 +63,47 @@ public class MainActivity extends AppCompatActivity {
             case R.id.bu0:
                 number += "0";
                 break;
-            case R.id.budot:
-                if(number.isEmpty())
-                    number = "0";
-                number += ".";
-                break;
-            case R.id.buplusminus:
-                number = "-"+ number;
-                break;
-
         }
         ed1.setText(number);
 
     }
+
+    public void DotEvent(View view) {
+        if(isNew) {
+            ed1.setText("");
+        }
+        isNew = false;
+        String number = ed1.getText().toString();
+        switch(view.getId()) {
+             case R.id.budot:
+
+                if(number.isEmpty())
+                    number = "0";
+                if(number.contains("."))
+                    break;
+                number += ".";
+                break;
+
+        }
+
+        ed1.setText(number);
+
+    }
+    public void PlusMinusEvent(View view)
+    {
+        String number = ed1.getText().toString();
+        switch(view.getId()) {
+            case R.id.buplusminus:
+                if (number.contains("-")) {
+                    number = number.substring(1);
+                } else {
+                    number = "-" + number;
+                }
+                break;
+        }
+        ed1.setText(number);
+    }
+
     public void operatorEvent(View view)
     {
         isNew = true;
@@ -89,32 +123,13 @@ public class MainActivity extends AppCompatActivity {
                 op = "X";
                 break;
         }
-
+        //ed1.setText("");
     }
 
     public void EqualEvent(View view) {
         isNew = true;
         String newNumber = ed1.getText().toString();
-       // if(op == "")
-          //  oldNumber = "";
-        /*if(newNumber.isEmpty()) {
-            if (oldNumber.isEmpty()) {
-                ed1.setText("");
-            }
-            else
-            {
-                ed1.setText(oldNumber);
-            }
-        }
-        else if(oldNumber.isEmpty())
-        {
-            if(newNumber.isEmpty())
-                ed1.setText("");
-            else
-                ed1.setText(newNumber);
-        }*/
-//        else {
-            try {
+        try {
                 Double result = Double.parseDouble(newNumber);
 
                 switch (op) {
@@ -131,10 +146,13 @@ public class MainActivity extends AppCompatActivity {
                         result = Double.parseDouble(oldNumber) / Double.parseDouble(newNumber);
                         break;
                     default:
-//                result = Double.parseDouble(newNumber);
 
                 }
-                ed1.setText(result.toString());
+                String temp = result.toString();
+                if(temp.endsWith("0"))
+                    ed1.setText(temp.substring(0,temp.length()-2));
+                else
+                    ed1.setText(temp);
 
             } catch (NumberFormatException e) {
                 ed1.setText("");
@@ -142,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             newNumber = "";
             oldNumber = "";
             op = "";
-//        }
+
     }
 
     public void ACEvent(View view) {
