@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     String op = "";
@@ -29,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
         isNew = false;
         String number = ed1.getText().toString();
-        //Button b = (Button)view;
-        //Log.println(0, "ui", b.getText().toString());
-        //number.concat(b.getText().toString());
+
         switch(view.getId()) {
             case R.id.bu1:
                 number += ("1");
@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 number += "0";
                 break;
         }
+
         ed1.setText(number);
 
     }
@@ -96,7 +97,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.buplusminus:
                 if (number.contains("-")) {
                     number = number.substring(1);
-                } else {
+                }
+                else if(number.compareTo("0") == 0)
+                    break;
+                else {
                     number = "-" + number;
                 }
                 break;
@@ -148,11 +152,17 @@ public class MainActivity extends AppCompatActivity {
                     default:
 
                 }
+
                 String temp = result.toString();
                 if(temp.endsWith("0"))
                     ed1.setText(temp.substring(0,temp.length()-2));
-                else
-                    ed1.setText(temp);
+                else {
+                    if (temp.contains(".")) {
+                        DecimalFormat myDecimalFormat = new DecimalFormat("0.00");
+                        temp = myDecimalFormat.format(result);
+                        ed1.setText(temp);
+                    }
+                }
 
             } catch (NumberFormatException e) {
                 ed1.setText("");

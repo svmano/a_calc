@@ -42,10 +42,12 @@
             <Button
                 android:id="@+id/buAC"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:onClick="ACEvent"
                 android:text="@string/buAC"
-                android:textSize="20pt"
                 android:textColor="@color/black"
+                android:textSize="20pt"
+
                 style="?android:attr/borderlessButtonStyle"/>
 
             <Button
@@ -90,7 +92,7 @@
                 android:onClick="numberEvent"
                 android:text="@string/bu1"
                 android:textSize="20pt"
-                android:textColor="@color/black"
+               android:textColor="@color/black"
                 style="?android:attr/borderlessButtonStyle"/>
 
             <Button
@@ -166,7 +168,7 @@
                 android:onClick="operatorEvent"
                 android:text="@string/buMul"
                 android:textSize="20pt"
-                android:textColor="@color/black"
+               android:textColor="@color/black"
                 style="?android:attr/borderlessButtonStyle"/>
         </TableRow>
         <TableRow
@@ -246,7 +248,7 @@
                 android:onClick="EqualEvent"
                 android:text="@string/buequal"
                 android:textSize="40pt"
-                android:textColor="@color/black"
+               android:textColor="@color/black"
                 style="?android:attr/borderlessButtonStyle"/>
     </TableRow>
     </TableLayout>
