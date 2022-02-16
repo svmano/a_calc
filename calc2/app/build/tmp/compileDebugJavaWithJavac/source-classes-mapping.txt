@@ -1,4 +1,0 @@
-com/homefinch/calc/BuildConfig.java
- com.homefinch.calc.BuildConfig
-com/homefinch/calc/MainActivity.java
- com.homefinch.calc.MainActivity

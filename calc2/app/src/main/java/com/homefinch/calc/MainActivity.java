@@ -3,6 +3,7 @@ package com.homefinch.calc;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ed1 = findViewById(R.id.text);
+        ed1.setInputType(InputType.TYPE_NULL);
     }
 
     public void numberEvent(View view) {
